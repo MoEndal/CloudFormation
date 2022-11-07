@@ -21,6 +21,8 @@ Parameters:
     Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
     Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
 
+
+  
   
 Resources:
   MyBucketResource:
@@ -36,3 +38,13 @@ Resources:
     Properties:
       InstanceType: !Ref MyInstanceType
       ImageId: !Ref LatestAmiId
+
+  JoonaLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Scheme: internet-facing
+      Subnets:
+        - subnet-01e1a1602b2d2c344
+        - subnet-058b077402278a0d3
+        - subnet-04f794da21a1b1293
+      
