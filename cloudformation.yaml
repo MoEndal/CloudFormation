@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: CloudFormation harjoitus 1
+
+Parameters:
+  MyBucketName:
+    Description: My bucket name
+    Type: String
+    Default: joona-cloudformation-bucket
+  
+Resources:
+  MyBucketResource:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref MyBucketName
